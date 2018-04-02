@@ -1,5 +1,5 @@
 .topNav {
-    background-color: rgb(163, 163, 163);
+    background-color: rgb(245, 245, 245);
     overflow: hidden;
     padding: 4px;
 }
@@ -21,8 +21,7 @@
 }
 
 .topNav a:hover {
-    background-color: #ddd;
-    color: black;
+    color: grey;
     text-decoration: none;
 }
 
