@@ -1,34 +1,45 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import withAuthorization from '../higherorder/withAuthorization';
 import { db } from '../../firebase';
+import { Grid, Jumbotron } from 'react-bootstrap/lib';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './Home.css';
 
 class HomePage extends Component {
-  constructor(props) {
+  constructor(props, { authUser }) {
     super(props);
-
     this.state = {
-      users: null,
+      user: authUser,
+      userInfo: null
     };
   }
 
   componentDidMount() {
-    db.onceGetUsers().then(snapshot =>
-      this.setState(() => ({ users: snapshot.val() }))
+    db.getCurrentUser(this.state.user.uid).then(snapshot =>
+      this.setState(() => ({ userInfo: snapshot.val() }))
     );
   }
 
   render() {
-  	const { users } = this.state;
+  	const { user, userInfo } = this.state;
     return (
-      <div>
-        <h1>Home</h1>
+      <Grid fluid style={{padding: 0}}>
+        <Jumbotron style={{borderRadius: 0, margin: 0, minHeight: 300}}>
+          <h2 style={{color: 'white', marginTop: 150, textAlign: 'center'}}> 
+            Welcome back{ !!userInfo && ', ' + userInfo.username }.
+          </h2>
+        </Jumbotron>
         <p>The Home Page is accessible by every signed in user.</p>
-        { !!users && <UserList users={users} /> }
-      </div>
+      </Grid>
     );
   }
 }
+
+HomePage.contextTypes = {
+  authUser: PropTypes.object,
+};
 
 const UserList = ({ users }) =>
   <div>

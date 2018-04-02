@@ -11,4 +11,7 @@ export const doCreateUser = (id, username, email) =>
 export const onceGetUsers = () =>
   db.ref('users').once('value');
 
+export const getCurrentUser = (id) =>
+  db.ref(`users/${id}`).once('value');
+
 // Other Entity APIs ...

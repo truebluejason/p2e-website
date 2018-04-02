@@ -16,10 +16,11 @@ import AntidotesPage from './antidotes/Antidotes';
 import GuidePage from './guide/Guide';
 import withAuthentication from './higherorder/withAuthentication';
 import * as routes from '../constants/routes';
+import './App.css';
 
 const App = () =>
   <Router>
-    <div>
+    <div className='containerDiv'>
       <Navigation />
       <Route exact path={routes.LANDING} component={() => <LandingPage />} />
       <Route exact path={routes.SIGN_UP} component={() => <SignUpPage />} />
