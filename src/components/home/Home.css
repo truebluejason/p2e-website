@@ -1,3 +1,13 @@
+.contentBox {
+	min-height: 600px;
+	overflow: hidden;
+}
+
+.contentBox div a {
+	color: teal;
+	text-decoration: none;
+}
+
 .jumbotron {
 	background: url('../../assets/images/homeBackground.jpg') no-repeat center center;
 	background-size: cover;
