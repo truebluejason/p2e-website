@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { PasswordForgetForm } from './PasswordForget';
-import PasswordChangeForm from './PasswordChange';
-import withAuthorization from './withAuthorization';
+import { PasswordForgetForm } from '../login/PasswordForget';
+import PasswordChangeForm from '../login/PasswordChange';
+import withAuthorization from '../higherorder/withAuthorization';
 
 const AccountPage = (props, { authUser }) =>
   <div>

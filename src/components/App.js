@@ -3,14 +3,14 @@ import {
   BrowserRouter as Router,
   Route,
 } from 'react-router-dom';
-import Navigation from './Navigation';
+import Navigation from './navigation/Navigation';
 import LandingPage from './Landing';
-import SignUpPage from './SignUp';
-import SignInPage from './SignIn';
-import PasswordForgetPage from './PasswordForget';
+import SignUpPage from './login/SignUp';
+import SignInPage from './login/SignIn';
+import PasswordForgetPage from './login/PasswordForget';
 import HomePage from './Home';
-import AccountPage from './Account';
-import withAuthentication from './withAuthentication';
+import AccountPage from './account/Account';
+import withAuthentication from './higherorder/withAuthentication';
 import * as routes from '../constants/routes';
 
 
