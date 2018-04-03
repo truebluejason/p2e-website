@@ -8,7 +8,7 @@
 	text-decoration: none;
 }
 
-.jumbotron {
+#homeBackground {
 	background: url('../../assets/images/homeBackground.jpg') no-repeat center center;
 	background-size: cover;
 }

@@ -6,6 +6,7 @@ export const doCreateUser = (id, username, email) =>
   db.ref(`users/${id}`).set({
     username,
     email,
+    highestLevel: 1
   });
 
 export const onceGetUsers = () =>

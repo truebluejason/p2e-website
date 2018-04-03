@@ -7,4 +7,4 @@ export const PASSWORD_FORGET = '/pw-forget';
 export const INSTRUCTIONS = '/instructions';
 export const DIAGNOSTICS = '/diagnostics';
 export const ANTIDOTES = '/antidotes';
-export const GUIDE = '/guide';
+export const OVERVIEW = '/overview';

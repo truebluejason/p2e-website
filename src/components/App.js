@@ -13,7 +13,7 @@ import PasswordForgetPage from './login/PasswordForget';
 import InstructionsPage from './instructions/Instructions';
 import DiagnosticsPage from './diagnostics/Diagnostics';
 import AntidotesPage from './antidotes/Antidotes';
-import GuidePage from './guide/Guide';
+import OverviewPage from './overview/Overview';
 import withAuthentication from './higherorder/withAuthentication';
 import * as routes from '../constants/routes';
 import './App.css';
@@ -31,7 +31,7 @@ const App = () =>
       <Route exact path={routes.INSTRUCTIONS} component={() => <InstructionsPage />} />
       <Route exact path={routes.DIAGNOSTICS} component={() => <DiagnosticsPage />} />
       <Route exact path={routes.ANTIDOTES} component={() => <AntidotesPage />} />
-      <Route exact path={routes.GUIDE} component={() => <GuidePage />} />
+      <Route exact path={routes.OVERVIEW} component={() => <OverviewPage />} />
     </div>
   </Router>
 

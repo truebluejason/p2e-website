@@ -1,0 +1,9 @@
+.contentBox {
+	min-height: 600px;
+	overflow: hidden;
+}
+
+#landingBackground {
+	background: url('../../assets/images/landingBackground.jpeg') no-repeat center center;
+	background-size: cover;
+}
