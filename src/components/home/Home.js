@@ -1,24 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import bootstrapClasses, { Col, Grid, Jumbotron, Row,} from '../../assets/bootstrap'
+import bootstrapClasses, { Col, Grid, Jumbotron, Row,} from '../../assets/bootstrap';
 import withAuthorization from '../higherorder/withAuthorization';
 import { db } from '../../firebase';
 import * as routes from '../../constants/routes';
 import './Home.css';
 
 class HomePage extends Component {
-  constructor(props, { authUser }) {
+  constructor(props, { authUser, userInfo }) {
     super(props);
     this.state = {
       user: authUser,
-      userInfo: null
+      userInfo: userInfo
     };
-  }
-  componentDidMount() {
-    db.getCurrentUser(this.state.user.uid).then(snapshot =>
-      this.setState(() => ({ userInfo: snapshot.val() }))
-    );
   }
   render() {
   	const { user, userInfo } = this.state;
@@ -36,6 +31,7 @@ class HomePage extends Component {
 }
 HomePage.contextTypes = {
   authUser: PropTypes.object,
+  userInfo: PropTypes.object,
 };
 
 // Not adaptive to changing screen sizes for now

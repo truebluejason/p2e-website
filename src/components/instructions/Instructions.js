@@ -1,8 +1,13 @@
 import React from 'react';
-const InstructionsPage = () => {
+import withAuthorization from '../higherorder/withAuthorization';
+import withLevel from '../higherorder/withLevel';
+
+const InstructionsPage = (props) => {
 	return (
-		<div>Instructions coming soon</div>
+		<div>Instructions coming soon and {props.currentPageLevel}</div>
 	);
 };
 
-export default InstructionsPage;
+const authCondition = (authUser) => !!authUser;
+
+export default withAuthorization(authCondition)(withLevel(InstructionsPage));

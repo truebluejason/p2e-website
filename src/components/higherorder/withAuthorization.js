@@ -22,6 +22,7 @@ const withAuthorization = (authCondition) => (Component) => {
 
   WithAuthorization.contextTypes = {
     authUser: PropTypes.object,
+    userInfo: PropTypes.object,
   };
 
   return withRouter(WithAuthorization);

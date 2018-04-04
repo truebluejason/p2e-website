@@ -12,7 +12,15 @@ export const doCreateUser = (id, username, email) =>
 export const onceGetUsers = () =>
   db.ref('users').once('value');
 
-export const getCurrentUser = (id) =>
+export const getCurrentUserRef = (id) =>
+  db.ref(`users/${id}`);
+
+export const getCurrentUserData = (id) =>
   db.ref(`users/${id}`).once('value');
 
+export const listenToCurrentUserData = (id, callback) =>
+  db.ref(`users/${id}`).on('value', callback);
 // Other Entity APIs ...
+
+export const releaseCurrentUserData = (id, callback) =>
+  db.ref(`users/${id}`).off();
