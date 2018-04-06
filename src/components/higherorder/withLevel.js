@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bootstrapClasses, { Col, Grid, Jumbotron, Row,} from '../../assets/bootstrap';
+import bootstrapClasses, { Button, ButtonToolbar, Col, Grid, Jumbotron, Row,} from '../../assets/bootstrap';
 
 
 const withLevel = (Component) => {
 	class WithLevel extends React.Component {
 		constructor(props, context) {
 			super(props)
-			this.state = {
+			this.initialState = {
 				highestLevel: context.userInfo.highestLevel,
 				currentPageLevel: context.userInfo.highestLevel,
 			};
+			this.state = {...this.initialState};
 		}
 		onPageChange = (newValue) => {
 			this.setState({currentPageLevel: newValue})
@@ -26,7 +27,7 @@ const withLevel = (Component) => {
 	}
 	WithLevel.contextTypes = {
 		authUser: PropTypes.object,
-  		userInfo: PropTypes.object,
+  	userInfo: PropTypes.object,
 	}
 	return WithLevel;
 }
@@ -37,26 +38,43 @@ class LevelNavigator extends React.Component {
 	constructor(props) {
 		super(props);
 	}
-	incrementPage = () => {
-		if (this.props.currentPageLevel < this.props.highestLevel) {
-			this.props.onPageChange(this.props.currentPageLevel + 1);
+	shouldDisable = () => {
+		if (this.props.highestLevel <= this.props.currentPageLevel) {
+			return "disabled";
+		}
+	}
+	prevButton = () => {
+		debugger
+		if (this.props.currentPageLevel <= 1) {
+			return <Button onClick={this.decrementPage} disabled>Prev Level</Button>
 		} else {
-			alert("You cannot view contents past your highest level.")
+			return <Button onClick={this.decrementPage}>Prev Level</Button>
+		}
+	}
+	nextButton = () => {
+		if (this.props.highestLevel <= this.props.currentPageLevel) {
+			return <Button onClick={this.incrementPage} disabled>Next Level</Button>
+		} else {
+			return <Button onClick={this.incrementPage}>Next Level</Button>
 		}
 	}
 	decrementPage = () => {
 		if (1 < this.props.currentPageLevel) {
 			this.props.onPageChange(this.props.currentPageLevel - 1);
-		} else {
-			alert("You cannot view contents below level 1.")
+		}
+	}
+	incrementPage = () => {
+		if (this.props.currentPageLevel < this.props.highestLevel) {
+			this.props.onPageChange(this.props.currentPageLevel + 1);
 		}
 	}
 	render() {
 		return (
 			<div>
 				<h1>This is LevelNavigator.</h1>
-				<h2 onClick={this.incrementPage}>Increment Page Number</h2>
-				<h2 onClick={this.decrementPage}>Decrement Page Number</h2>
+					{this.prevButton()}
+					<h2>{this.props.currentPageLevel}/10</h2>
+					{this.nextButton()}
 			</div>
 		)
 	}
