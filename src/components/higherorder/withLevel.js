@@ -38,13 +38,7 @@ class LevelNavigator extends React.Component {
 	constructor(props) {
 		super(props);
 	}
-	shouldDisable = () => {
-		if (this.props.highestLevel <= this.props.currentPageLevel) {
-			return "disabled";
-		}
-	}
 	prevButton = () => {
-		debugger
 		if (this.props.currentPageLevel <= 1) {
 			return <Button onClick={this.decrementPage} disabled>Prev Level</Button>
 		} else {
@@ -71,10 +65,9 @@ class LevelNavigator extends React.Component {
 	render() {
 		return (
 			<div>
-				<h1>This is LevelNavigator.</h1>
-					{this.prevButton()}
-					<h2>{this.props.currentPageLevel}/10</h2>
-					{this.nextButton()}
+				{this.prevButton()}
+				<h2>{this.props.currentPageLevel}/10</h2>
+				{this.nextButton()}
 			</div>
 		)
 	}
