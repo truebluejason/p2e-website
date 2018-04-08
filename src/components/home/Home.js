@@ -54,7 +54,7 @@ const ContentContainer = (props) =>
     <Row style={{margin: 0, paddingTop: 12}}>
       <Col className='contentBox' xs={12} sm={12} style={colStyle}>
         <div style={divStyle}>
-          <Link to={routes.INSTRUCTIONS}>
+          <Link to={routes.OVERVIEW}>
             <h3>Overview</h3>
           </Link>
           <p style={{textAlign: 'center'}}>

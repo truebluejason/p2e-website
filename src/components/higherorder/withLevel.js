@@ -64,9 +64,9 @@ class LevelNavigator extends React.Component {
 	}
 	render() {
 		return (
-			<div>
+			<div style={{display: 'flex', justifyContent: 'center'}}>
 				{this.prevButton()}
-				<h2>{this.props.currentPageLevel}/10</h2>
+				<h2 style={{marginLeft: 20, marginRight: 20}}>{this.props.currentPageLevel}/10</h2>
 				{this.nextButton()}
 			</div>
 		)

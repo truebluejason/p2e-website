@@ -1,5 +1,6 @@
 import React from 'react';
 import withAuthorization from '../higherorder/withAuthorization';
+import withLevel from '../higherorder/withLevel';
 
 const DiagnosticsPage = () => {
 	return (
@@ -9,4 +10,4 @@ const DiagnosticsPage = () => {
 
 const authCondition = (authUser) => !!authUser;
 
-export default withAuthorization(authCondition)(DiagnosticsPage);
+export default withAuthorization(authCondition)(withLevel(DiagnosticsPage));
