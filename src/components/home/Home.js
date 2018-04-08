@@ -76,6 +76,7 @@ const ContentContainer = (props) =>
       <ContentBox>
         <Link to={routes.DIAGNOSTICS}>
           <h3>Diagnostics</h3>
+          <h5>(Coming Soon)</h5>
         </Link>
         <p style={pStyle}>
           A multi-question checklist that highlights which area
@@ -86,6 +87,7 @@ const ContentContainer = (props) =>
       <ContentBox>
         <Link to={routes.ANTIDOTES}>
           <h3>Antidotes</h3>
+          <h5>(Coming Soon)</h5>
         </Link>
         <p style={pStyle}>
           A list of hindrances that may impede meditation session and 

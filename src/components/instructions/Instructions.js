@@ -14,7 +14,7 @@ class InstructionsPage extends React.Component {
 			flexDirection: 'column', 
 			justifyContent: 'center', 
 			margin: 12,
-			padding: 12,
+			padding: 16,
 		}
 		const pageContent = InstructionsPages[this.props.currentPageLevel - 1];
 		return (
