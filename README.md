@@ -1,1 +1,1 @@
-Path to Enlightenment is a website containing step by step instructions, diagnostics, and theory for anyone interested in meditation.
+Path to Enlightenment aims to help you develop stable attention and powerful mindfulness.

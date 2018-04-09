@@ -5,7 +5,7 @@ const pStyle = { textIndent: 12 };
 const InstructionsPageOne = (props) => {
 	return (
 		<div>
-			<h3 style={h3Style}>Stage 1: Establishing a Stable Practise</h3>
+			<h3 style={h3Style}>Stage 1: Establishing a Stable Practice</h3>
 			<br />
 			<h5>Goal: Establish a meditation habit.</h5>
 			<h5>Instructions</h5>
@@ -22,7 +22,7 @@ const InstructionsPageOne = (props) => {
 			<p style={pStyle}>
 				Stable attention and powerful mindfulness have the ability to permanently change
 				your life for the better. However, 99% of the benefits come from
-				consistent practise, not from intellectual understanding. Your goal for
+				consistent practice, not from intellectual understanding. Your goal for
 				this stage is to develop a habit of meditating. Do not worry about the
 				quality of meditation yet - what matters is the fact that you are making meditation 
 				a part of your life.
