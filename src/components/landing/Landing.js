@@ -2,7 +2,6 @@ import React from 'react';
 import bootstrapClasses, { Col, Grid, Jumbotron, ListGroup, ListGroupItem, Row,} from '../../assets/bootstrap'
 import './Landing.css';
 
-const colStyle = {background: 'teal'};
 const headerStyle = {color: 'white', marginBottom: 0, textAlign: 'center'};
 const LandingPage = () =>
   <Grid fluid style={{padding: 0}}>
@@ -41,7 +40,7 @@ const ContentContainer = () =>
         </h5>
         <ListGroup style={{marginTop: 20}}>
         	<ListGroupItem>
-        		A model of consciousness based on Buddhist tradition and science
+        		Theory behind meditation based on Buddhism and science
         	</ListGroupItem>
         	<ListGroupItem>
         		An in-depth step by step meditation instructions

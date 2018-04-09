@@ -58,7 +58,7 @@ const ContentContainer = (props) =>
             <h3>Overview</h3>
           </Link>
           <p style={{textAlign: 'center'}}>
-            The purpose and nature of meditation.
+            The purpose and theory behind meditation.
           </p>
         </div>
       </Col>
