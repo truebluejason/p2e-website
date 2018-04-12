@@ -48,8 +48,6 @@ class DiagnosticsPage extends React.Component {
 		const resultsRoute = `${this.props.match.url}/results`
 		return (
 			<div>
-				<Route exact path={questionsRoute} component={() => <QuestionsPage />}/>
-				<Route path={resultsRoute} component={() => <ResultsPage />}/>
 				<Row style={rowStyle}>
 					<Col style={colStyle} xs={12} sm={6}>
 						<Link to={questionsRoute}>Click Me</Link>
@@ -73,13 +71,16 @@ class DiagnosticsPage extends React.Component {
 							</div>
 					</Col>
 				</Row>
+				<Route exact path={this.props.match.url} render={() => <h1>Filler!</h1>}/>
+				<Route exact path={questionsRoute} render={() => <h1>Killer!</h1>}/>
+				<Route path={resultsRoute} component={() => <ResultsPage />}/>
 			</div>
 		)
 	}
 }
 
-const QuestionsPage = (props) => {
-	return <h1>I am question</h1>
+const QuestionsPage = ({match}) => {
+	<h1>I am question</h1>
 }
 
 const ResultsPage = (props) => 
