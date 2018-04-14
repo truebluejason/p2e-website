@@ -6,5 +6,7 @@ export const ACCOUNT = '/account';
 export const PASSWORD_FORGET = '/pw-forget';
 export const INSTRUCTIONS = '/instructions';
 export const DIAGNOSTICS = '/diagnostics';
+export const DIAGNOSTICS_QUESTIONS = `${DIAGNOSTICS}/questions`;
+export const DIAGNOSTICS_RESULTS = `${DIAGNOSTICS}/results`;
 export const ANTIDOTES = '/antidotes';
 export const OVERVIEW = '/overview';
