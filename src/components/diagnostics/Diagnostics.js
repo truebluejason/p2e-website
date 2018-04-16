@@ -7,8 +7,9 @@ import {
 import PropTypes from 'prop-types';
 import bootstrapClasses, { Col, Grid, Jumbotron, Row,} from '../../assets/bootstrap';
 import withAuthorization from '../higherorder/withAuthorization';
-import withLevel from '../higherorder/withLevel';
 import * as routes from '../../constants/routes';
+import DiagnosticsQuestionsPage from './DiagnosticsQuestions'
+import DiagnosticsResultsPage from './DiagnosticsResults'
 import classes from './Diagnostics.css';
 
 // Should have a router that enables each question to be in the page by itself
@@ -22,8 +23,8 @@ class DiagnosticsPage extends React.Component {
 		return (
 			<div>
 				<Route exact path={this.props.match.url} component={() => <DiagnosticsMenuPage {...this.props}/>}/>
-				<Route path={routes.DIAGNOSTICS_QUESTIONS} component={() => <QuestionsPage />}/>
-				<Route path={routes.DIAGNOSTICS_RESULTS} component={() => <ResultsPage />}/>
+				<Route path={routes.DIAGNOSTICS_QUESTIONS} component={() => <DiagnosticsQuestionsPage {...this.props}/>}/>
+				<Route path={routes.DIAGNOSTICS_RESULTS} component={() => <DiagnosticsResultsPage {...this.props}/>}/>
 			</div>
 		)
 	}
@@ -92,14 +93,6 @@ const DiagnosticsMenuPage = () => {
 		</Row>
 	);
 }
-
-const QuestionsPage = () => 
-	<h1>I am question</h1>
-
-
-const ResultsPage = (props) => 
-	<h1>I am result</h1>
-
 
 const authCondition = (authUser) => !!authUser;
 
