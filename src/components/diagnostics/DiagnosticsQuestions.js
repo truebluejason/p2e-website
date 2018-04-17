@@ -8,6 +8,7 @@ import classes from './Diagnostics.css';
 class DiagnosticsQuestionsPage extends React.Component {
 
 	render() {
+		// Should return routes to dynamically generated questions pages
 		return (
 			<ContainerDiv>
 				I am a question.
