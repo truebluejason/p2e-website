@@ -12,19 +12,21 @@ class DiagnosticsQuestionsPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			qNumber: 1
+			qNumber: 1,
+			qCount: Object.keys(DIAGNOSTICS_QUESTIONS).length,
 		};
 	}
 
-	question = (num) => {
-
+	question = (qNumber) => {
+		const current = DIAGNOSTICS_QUESTIONS[qNumber];
+		const responses = current["responses"].map((resp, i) => {
+			return <Button key={i}>{resp}</Button>
+		});
 		return (
 			<SimpleDiv>
-				<h3>{DIAGNOSTICS_QUESTIONS["1"]["question"]}</h3>
+				<h3>{current["question"]}</h3>
 				<ButtonGroup vertical block>
-					<Button>{DIAGNOSTICS_QUESTIONS["1"]["responses"][0]}</Button>
-					<Button>{DIAGNOSTICS_QUESTIONS["1"]["responses"][1]}</Button>
-					<Button>{DIAGNOSTICS_QUESTIONS["1"]["responses"][2]}</Button>
+					{responses}
 				</ButtonGroup>
 			</SimpleDiv>
 		)
@@ -39,17 +41,64 @@ class DiagnosticsQuestionsPage extends React.Component {
 		// Navigator at the bottom
 		return (
 			<ContainerDiv>
-				{this.question(this.state.qNumber)}
-				<QuestionNavigator onQuestionChange={this.onPageChange}/>
+				{this.question(this.state.qNumber.toString())}
+				{this.state.qNumber}
+				<QuestionNavigator {...this.state} onQuestionChange={this.onQuestionChange}/>
 			</ContainerDiv>
 		)
 	}
 }
 
-const QuestionNavigator = (props) => {
-	return (
-		<h1>I am the navigator</h1>
-	)
+class ButtonManager extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+	render() {
+		return (
+			<Button>WIP</Button>
+		)
+	}
+}
+
+// If already at the highest level, disable clicking next page
+// Else, trigger setState on parent
+class QuestionNavigator extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+	prevButton = () => {
+		if (this.props.qNumber <= 1) {
+			return <Button onClick={this.decrementPage} disabled>Prev Question</Button>
+		} else {
+			return <Button onClick={this.decrementPage}>Prev Question</Button>
+		}
+	}
+	nextButton = () => {
+		if (this.props.qCount <= this.props.qNumber) {
+			return <Button onClick={this.incrementPage} disabled>Next Question</Button>
+		} else {
+			return <Button onClick={this.incrementPage}>Next Question</Button>
+		}
+	}
+	decrementPage = () => {
+		if (1 < this.props.qNumber) {
+			this.props.onQuestionChange(this.props.qNumber - 1);
+		}
+	}
+	incrementPage = () => {
+		if (this.props.qNumber < this.props.qCount) {
+			this.props.onQuestionChange(this.props.qNumber + 1);
+		}
+	}
+	render() {
+		return (
+			<div style={{display: 'flex', justifyContent: 'center'}}>
+				{this.prevButton()}
+				<span style={{padding: 10}}></span>
+				{this.nextButton()}
+			</div>
+		)
+	}
 }
 
 export default DiagnosticsQuestionsPage;
