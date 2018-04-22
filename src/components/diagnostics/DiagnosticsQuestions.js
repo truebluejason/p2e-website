@@ -3,18 +3,20 @@ import PropTypes from 'prop-types';
 import bootstrapClasses, { Button, ButtonGroup } from '../../assets/bootstrap';
 import { ContainerDiv, SimpleDiv } from '../common/ContainerDiv';
 import { DIAGNOSTICS_QUESTIONS } from '../../constants/questions';
+import { db } from '../../firebase';
 import * as routes from '../../constants/routes';
 import classes from './Diagnostics.css'; 
 
 class DiagnosticsQuestionsPage extends React.Component {
 
-	constructor(props) {
+	constructor(props, { authUser }) {
 		super(props);
 		this.state = {
 			qNumber: 1,
 			qCount: Object.keys(DIAGNOSTICS_QUESTIONS).length,
 			selectedIndex: null,
 			responses: {},
+			userId: authUser.uid
 		};
 	}
 
@@ -30,10 +32,11 @@ class DiagnosticsQuestionsPage extends React.Component {
 		});
 	}
 
-	// Record selectedIndex in responses object, submit responses to Firebase, redirect to SuggestionsPage
+	// Record selectedIndex in responses object, submit responses to Firebase, redirect to DiagnosticsAnalysisPage
 	onSubmitAnswers = () => {
 		this.state.responses[this.state.qNumber] = this.state.selectedIndex;
-		console.log(this.state.responses);
+		db.doCreateDiagnosticsEntry(this.state.userId, this.state.responses);
+		this.props.history.push(routes.DIAGNOSTICS_ANALYSIS);
 	}
 
 	render() {
@@ -44,6 +47,10 @@ class DiagnosticsQuestionsPage extends React.Component {
 			</ContainerDiv>
 		)
 	}
+}
+
+DiagnosticsQuestionsPage.contextTypes = {
+	authUser: PropTypes.object,
 }
 
 

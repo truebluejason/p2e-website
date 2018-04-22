@@ -21,7 +21,7 @@ class HomePage extends Component {
       <Grid fluid style={{padding: 0}}>
         <Jumbotron id="homeBackground" style={{borderRadius: 0, margin: 0, minHeight: 350}}>
           <h2 style={{color: 'white', marginTop: 200, textAlign: 'center'}}> 
-            Welcome back{ !!userInfo && ', ' + userInfo.username }.
+            Welcome{ !!userInfo && ', ' + userInfo.username }.
           </h2>
         </Jumbotron>
         <ContentContainer />

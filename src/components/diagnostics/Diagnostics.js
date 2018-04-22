@@ -9,6 +9,7 @@ import bootstrapClasses, { Col, Grid, Jumbotron, Row,} from '../../assets/bootst
 import withAuthorization from '../higherorder/withAuthorization';
 import * as routes from '../../constants/routes';
 import DiagnosticsQuestionsPage from './DiagnosticsQuestions'
+import DiagnosticsAnalysisPage from './DiagnosticsAnalysis'
 import DiagnosticsResultsPage from './DiagnosticsResults'
 import classes from './Diagnostics.css';
 
@@ -24,6 +25,7 @@ class DiagnosticsPage extends React.Component {
 			<div>
 				<Route exact path={this.props.match.url} component={() => <DiagnosticsMenuPage {...this.props}/>}/>
 				<Route path={routes.DIAGNOSTICS_QUESTIONS} component={() => <DiagnosticsQuestionsPage {...this.props}/>}/>
+				<Route path={routes.DIAGNOSTICS_ANALYSIS} component={() => <DiagnosticsAnalysisPage {...this.props}/>}/>
 				<Route path={routes.DIAGNOSTICS_RESULTS} component={() => <DiagnosticsResultsPage {...this.props}/>}/>
 			</div>
 		)

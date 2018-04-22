@@ -27,7 +27,7 @@ const withLevel = (Component) => {
 	}
 	WithLevel.contextTypes = {
 		authUser: PropTypes.object,
-  	userInfo: PropTypes.object,
+  		userInfo: PropTypes.object,
 	}
 	return WithLevel;
 }

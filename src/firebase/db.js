@@ -24,3 +24,11 @@ export const listenToCurrentUserData = (id, callback) =>
 
 export const releaseCurrentUserData = (id, callback) =>
   db.ref(`users/${id}`).off();
+
+export const doCreateDiagnosticsEntry = (id, responses) => {
+  db.ref(`diagnostics/${id}/${Date.now()}`).set({
+    responses: responses
+  }).catch(err => {
+    alert('An error has occured while saving the data to Firebase.')
+  });
+}
