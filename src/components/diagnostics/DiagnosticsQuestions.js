@@ -8,60 +8,61 @@ import classes from './Diagnostics.css';
 
 class DiagnosticsQuestionsPage extends React.Component {
 
-	// State describes which question to user is at and display information accordingly
 	constructor(props) {
 		super(props);
 		this.state = {
 			qNumber: 1,
 			qCount: Object.keys(DIAGNOSTICS_QUESTIONS).length,
-			selected: null,
+			selectedIndex: null,
+			responses: {},
 		};
 	}
 
-	question = (qNumber) => {
-		const current = DIAGNOSTICS_QUESTIONS[qNumber];
-		const responses = current["responses"].map((resp, i) => {
-			return <Button key={i}>{resp}</Button>
+	onResponseSelect = (selectedIndex) => {
+		this.setState({selectedIndex: selectedIndex});
+	}
+
+	// Record selectedIndex in responses object and increment qNumber
+	onQuestionChange = () => {
+		this.setState((prevState, props) => {
+			prevState.responses[prevState.qNumber] = prevState.selectedIndex;
+			return {qNumber: prevState.qNumber + 1, responses: prevState.responses, selectedIndex: null};
 		});
-		return (
-			<SimpleDiv>
-				<h3>{current["question"]}</h3>
-				<ButtonGroup vertical block>
-					{responses}
-				</ButtonGroup>
-			</SimpleDiv>
-		)
 	}
 
-	onResponseSelect = (selected) => {
-		this.setState({selected: selected});
-	}
-
-	onQuestionChange = (newValue) => {
-		this.setState({qNumber: newValue});
+	// Record selectedIndex in responses object, submit responses to Firebase, redirect to SuggestionsPage
+	onSubmitAnswers = () => {
+		this.state.responses[this.state.qNumber] = this.state.selectedIndex;
+		console.log(this.state.responses);
 	}
 
 	render() {
 		return (
 			<ContainerDiv>
-				<ButtonManager selected={this.state.selected} qNumber={this.state.qNumber.toString()} onResponseSelect={this.onResponseSelect}/>
-				<QuestionNavigator {...this.state} onQuestionChange={this.onQuestionChange}/>
+				<ButtonManager selectedIndex={this.state.selectedIndex} qNumber={this.state.qNumber.toString()} onResponseSelect={this.onResponseSelect}/>
+				<QuestionNavigator {...this.state} onQuestionChange={this.onQuestionChange} onSubmitAnswers={this.onSubmitAnswers}/>
 			</ContainerDiv>
 		)
 	}
 }
 
+
+// Renders buttons and updates DiagnosticsQuestionsPage of the selected response's index
 class ButtonManager extends React.Component {
 	constructor(props) {
 		super(props);
 	}
 	handleClick = (e) => {
-		this.props.onResponseSelect(e.target.textContent);
+		const currentOptions = DIAGNOSTICS_QUESTIONS[this.props.qNumber]["responses"];
+		let textContent = e.target.textContent;
+		// Find if correct index is returned
+		let textContentIndex = Object.keys(currentOptions).filter(key => currentOptions[key] === textContent)[0];
+		this.props.onResponseSelect(Number(textContentIndex));
 	}
 	render() {
 		const current = DIAGNOSTICS_QUESTIONS[this.props.qNumber];
 		const responses = current["responses"].map((resp, i) => {
-			if (this.props.selected === resp) {
+			if (this.props.selectedIndex === i) {
 				return (
 					<Button key={i} onClick={this.handleClick} bsStyle="success">
 						{resp}
@@ -71,9 +72,10 @@ class ButtonManager extends React.Component {
 				return <Button key={i} onClick={this.handleClick}>{resp}</Button>
 			}
 		});
+		const h3Style = { color: 'teal', margin: 0, marginBottom: 20, textAlign: 'center' };
 		return (
 			<SimpleDiv>
-				<h3>{current["question"]}</h3>
+				<h3 style={h3Style}>{current["question"]}</h3>
 				<ButtonGroup vertical block>
 					{responses}
 				</ButtonGroup>
@@ -82,21 +84,26 @@ class ButtonManager extends React.Component {
 	}
 }
 
+// Handles next question button and tells DiagnosticsQuestionsPage the selected response
+// Doesn't know the selectedIndex other than whether it's null or not
 class QuestionNavigator extends React.Component {
 	constructor(props) {
 		super(props);
 	}
 	nextButton = () => {
-		if (this.props.qCount <= this.props.qNumber || this.props.selected === null) {
-			return <Button onClick={this.incrementPage} disabled>Next Question</Button>
-		} else {
-			return <Button onClick={this.incrementPage}>Next Question</Button>
-		}
-	}
-	incrementPage = () => {
+		let buttonMsg;
+		let buttonClick;
 		if (this.props.qNumber < this.props.qCount) {
-			this.props.onQuestionChange(this.props.qNumber + 1);
+			buttonMsg = "Next Question";
+			buttonClick = this.props.onQuestionChange;
+		} else {
+			buttonMsg = "Submit Answers"
+			buttonClick = this.props.onSubmitAnswers;
 		}
+		if (this.props.selectedIndex === null) {
+			return <Button onClick={buttonClick} disabled style={{marginTop: 10}}>{buttonMsg}</Button>
+		}
+		return <Button onClick={buttonClick} style={{marginTop: 10}}>{buttonMsg}</Button>
 	}
 	render() {
 		return (
