@@ -31,4 +31,12 @@ export const doCreateDiagnosticsEntry = (id, responses) => {
   }).catch(err => {
     alert('An error has occured while saving the data to Firebase.')
   });
+  db.ref(`diagnostics/${id}/recent`).set({
+    responses: responses
+  }).catch(err => {
+    alert('An error has occured while saving the data to Firebase.')
+  });
 }
+
+export const getRecentResponses = (id) =>
+  db.ref(`diagnostics/${id}/recent/responses`).once('value');

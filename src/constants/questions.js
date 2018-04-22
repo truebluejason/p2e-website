@@ -9,7 +9,7 @@ const DIAGNOSTICS_QUESTIONS = {
 		suggestions: [
 			{
 				score: 5, 
-				message: "Great! Continue to be mindful and harbour the right intentions."
+				message: "That's perfect - Continue to be mindful and harbour the right intentions."
 			},
 			{
 				score: 3,
@@ -18,7 +18,7 @@ const DIAGNOSTICS_QUESTIONS = {
 			{
 				score: 1,
 				message: "Gently remind yourself to hold a conscious intention of sustaining the attention on the breathe next time.",
-			}
+			},
 		],
 		priority: 10,
 	},
@@ -30,9 +30,18 @@ const DIAGNOSTICS_QUESTIONS = {
 			"Dull",
 		],
 		suggestions: [
-			"Find and focus on the joyful sensation. Remember that only bad meditation session is one not done.",
-			"GOOD",
-			"Try to expand your peripheral awareness to notice the dullness and gently tighten up your focus on the breathe."
+			{
+				score: 1,
+				message: "Find and focus on the joyful sensation. Remember that only bad meditation session is one not done.",
+			},
+			{
+				score: 5,
+				message: "That's perfect - Continue to develop your attention and awareness for increased clarity.",
+			},
+			{
+				score: 1,
+				message: "Try to expand your peripheral awareness to notice the dullness and gently tighten up your focus on the breathe.",
+			},
 		],
 		priority: 5,
 	},
@@ -44,11 +53,20 @@ const DIAGNOSTICS_QUESTIONS = {
 			"No",
 		],
 		suggestions: [
-			"GOOD",
-			"Increase your efforts to be mindful in everyday setting.",
-			"Remember that application of mindfulness in real life is very important. Start off by having the intention to be mindful twice per day."
+			{
+				score: 5, 
+				message: "That's perfect - Continue to be keep up the effort to apply your mindfulness."
+			},
+			{
+				score: 3,
+				message: "Increase your efforts to be mindful in everyday setting."
+			},
+			{
+				score: 1,
+				message: "Remember that application of mindfulness in real life is very important. Start off by having the intention to be mindful twice per day.",
+			},
 		],
-		priority: 5,
+		priority: 7,
 	},
 };
 

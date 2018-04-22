@@ -62,7 +62,6 @@ class ButtonManager extends React.Component {
 	handleClick = (e) => {
 		const currentOptions = DIAGNOSTICS_QUESTIONS[this.props.qNumber]["responses"];
 		let textContent = e.target.textContent;
-		// Find if correct index is returned
 		let textContentIndex = Object.keys(currentOptions).filter(key => currentOptions[key] === textContent)[0];
 		this.props.onResponseSelect(Number(textContentIndex));
 	}
