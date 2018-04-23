@@ -76,7 +76,6 @@ const ContentContainer = (props) =>
       <ContentBox>
         <Link to={routes.DIAGNOSTICS}>
           <h3>Diagnostics</h3>
-          <h5>(Coming Soon)</h5>
         </Link>
         <p style={pStyle}>
           A multi-question checklist that highlights which area

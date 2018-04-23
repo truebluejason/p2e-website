@@ -9,6 +9,9 @@ export const doCreateUser = (id, username, email) =>
     highestLevel: 1
   });
 
+export const updateUserLevel = (id, newLevel) =>
+  db.ref(`users/${id}/highestLevel`).set(newLevel);
+
 export const onceGetUsers = () =>
   db.ref('users').once('value');
 
@@ -27,16 +30,21 @@ export const releaseCurrentUserData = (id, callback) =>
 
 export const doCreateDiagnosticsEntry = (id, responses) => {
   db.ref(`diagnostics/${id}/${Date.now()}`).set({
+    time: Date(),
     responses: responses
   }).catch(err => {
     alert('An error has occured while saving the data to Firebase.')
   });
   db.ref(`diagnostics/${id}/recent`).set({
+    time: Date(),
     responses: responses
   }).catch(err => {
     alert('An error has occured while saving the data to Firebase.')
   });
 }
+
+export const getResponses = (id) => 
+  db.ref(`diagnostics/${id}`).once('value');
 
 export const getRecentResponses = (id) =>
   db.ref(`diagnostics/${id}/recent/responses`).once('value');
