@@ -10,7 +10,9 @@ import * as routes from '../../constants/routes';
 import classes from './Diagnostics.css';
 
 Charts(FusionCharts);
-
+// REFACTOR QUESTIONS
+// Format: Responses order from highest to lowest score in questions.js
+// Firebase: Save 5 most recent responses and save previous data in terms of questions, like Jam Stats Console
 class DiagnosticsResultsPage extends React.Component {
 	constructor(props, { authUser }) {
 		super(props);
@@ -25,6 +27,8 @@ class DiagnosticsResultsPage extends React.Component {
 		  chart: {
 		    caption: 'Diagnostics Results',
 		    subCaption: 'Areas for Improvement From 5 Most Recent Entries',
+		    "xAxisName": "Questions",
+		    "yAxisName": "# of times the best answer wasn't selected",
 		  },
 		  data: [
 		    {
