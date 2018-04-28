@@ -23,6 +23,7 @@ class DiagnosticsResultsPage extends React.Component {
 
 	}
 	renderFakeChart = () => {
+		debugger;
 		const myDataSource = {
 		  chart: {
 		    caption: 'Diagnostics Results',

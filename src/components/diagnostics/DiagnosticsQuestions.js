@@ -36,6 +36,7 @@ class DiagnosticsQuestionsPage extends React.Component {
 	onSubmitAnswers = () => {
 		this.state.responses[this.state.qNumber] = this.state.selectedIndex;
 		db.doCreateDiagnosticsEntry(this.state.userId, this.state.responses);
+		db.doDeleteOldDiagnosticsEntries(this.state.userId);
 		this.props.history.push(routes.DIAGNOSTICS_ANALYSIS);
 	}
 

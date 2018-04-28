@@ -33,14 +33,30 @@ export const doCreateDiagnosticsEntry = (id, responses) => {
     time: Date(),
     responses: responses
   }).catch(err => {
-    alert('An error has occured while saving the data to Firebase.')
+    alert('An error has occurred while saving the data to Firebase.')
   });
   db.ref(`diagnostics/${id}/recent`).set({
     time: Date(),
     responses: responses
   }).catch(err => {
-    alert('An error has occured while saving the data to Firebase.')
+    alert('An error has occurred while saving the data to Firebase.')
   });
+}
+
+export const doDeleteOldDiagnosticsEntries = (id) => {
+  let userResultRef = db.ref(`diagnostics/${id}`);
+  userResultRef.once('value').then(snapshot => {
+    let results = snapshot.val();
+    let logs = Object.keys(results).filter(result => !!Number(result));
+    if (logs.length > 5) {
+      for (let i=0; i<logs.length - 5; i++) {
+        delete results[logs[i]];
+      }
+      userResultRef.set(results).catch(err => alert('An error has occurred while deleting old data.'));
+    }
+  }).catch(err => {
+    alert('An error has occurred while fetching data.')
+  })
 }
 
 export const getResponses = (id) => 
