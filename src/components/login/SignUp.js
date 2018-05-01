@@ -109,13 +109,18 @@ class SignUpForm extends Component {
   }
 }
 
-const SignUpLink = () =>
-  <p>
-    Don't have an account?
-    {' '}
-    <Link to={routes.SIGN_UP}>Sign Up</Link>
-  </p>
-
+const SignUpLink = () => {
+ const pStyle = {
+    textAlign: 'center', 
+  };
+  return (
+    <p style={pStyle}>
+      Don't have an account?
+      {' '}
+      <Link to={routes.SIGN_UP}>Sign Up</Link>
+    </p>
+  )
+}
 export default withRouter(SignUpPage);
 
 export {
