@@ -6,6 +6,7 @@ import {
 import { auth, db } from '../../firebase';
 
 import * as routes from '../../constants/routes';
+import { ContainerDiv, SimpleDiv } from '../common/ContainerDiv';
 
 const INITIAL_STATE = {
   username: '',
@@ -19,11 +20,20 @@ const byPropKey = (propertyName, value) => () => ({
   [propertyName]: value,
 });
 
-const SignUpPage = ({ history }) =>
-  <div>
-    <h1>SignUp</h1>
-    <SignUpForm history={history}/>
-  </div>
+const SignUpPage = ({ history }) => {
+  const h1Style = {
+    textAlign: 'center',
+    marginBottom: 15,
+  };
+  return (
+    <ContainerDiv>
+      <h1 style={h1Style}>Sign Up</h1>
+      <SignUpForm history={history}/>
+    </ContainerDiv>
+  )
+  
+}
+  
 
 class SignUpForm extends Component {
   constructor(props) {
@@ -67,6 +77,14 @@ class SignUpForm extends Component {
       passwordTwo,
       error,
     } = this.state;
+
+    const formStyle = {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      flexDirection: 'column', 
+    }
+
     const isInvalid =
       passwordOne !== passwordTwo ||
       passwordOne === '' ||
@@ -74,31 +92,39 @@ class SignUpForm extends Component {
       username === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-      	<input
-          value={username}
-          onChange={event => this.setState(byPropKey('username', event.target.value))}
-          type="text"
-          placeholder="Full Name"
-        />
-        <input
-          value={email}
-          onChange={event => this.setState(byPropKey('email', event.target.value))}
-          type="text"
-          placeholder="Email Address"
-        />
-        <input
-          value={passwordOne}
-          onChange={event => this.setState(byPropKey('passwordOne', event.target.value))}
-          type="password"
-          placeholder="Password"
-        />
-        <input
-          value={passwordTwo}
-          onChange={event => this.setState(byPropKey('passwordTwo', event.target.value))}
-          type="password"
-          placeholder="Confirm Password"
-        />
+      <form style={formStyle} onSubmit={this.onSubmit}>
+      	<div style={{marginBottom: 5}}>
+          <input
+            value={username}
+            onChange={event => this.setState(byPropKey('username', event.target.value))}
+            type="text"
+            placeholder="Full Name"
+          />
+        </div>
+        <div style={{marginBottom: 5}}>
+          <input
+            value={email}
+            onChange={event => this.setState(byPropKey('email', event.target.value))}
+            type="text"
+            placeholder="Email Address"
+          />
+        </div>
+        <div style={{marginBottom: 5}}>
+          <input
+            value={passwordOne}
+            onChange={event => this.setState(byPropKey('passwordOne', event.target.value))}
+            type="password"
+            placeholder="Password"
+          />
+        </div>
+        <div style={{marginBottom: 5}}>
+          <input
+            value={passwordTwo}
+            onChange={event => this.setState(byPropKey('passwordTwo', event.target.value))}
+            type="password"
+            placeholder="Confirm Password"
+          />
+        </div>
         <button disabled={isInvalid} type="submit">
           Sign Up
         </button>
