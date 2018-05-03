@@ -45,11 +45,20 @@ class PasswordForgetForm extends Component {
       error,
     } = this.state;
 
+    const formStyle = {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      flexDirection: 'column', 
+      marginTop: 5,
+      marginBottom: 5,
+    };
+
     const isInvalid = email === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
+      <form style = {formStyle} onSubmit={this.onSubmit}>
+        <input style={{marginBottom: 5}}
           value={this.state.email}
           onChange={event => this.setState(byPropKey('email', event.target.value))}
           type="text"

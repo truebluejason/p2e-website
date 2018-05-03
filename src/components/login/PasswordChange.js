@@ -40,19 +40,27 @@ class PasswordChangeForm extends Component {
       error,
     } = this.state;
 
+    const formStyle = {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      flexDirection: 'column', 
+      marginTop: 5,
+      marginBottom: 5,
+    };
     const isInvalid =
       passwordOne !== passwordTwo ||
       passwordOne === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
+      <form style = {formStyle} onSubmit={this.onSubmit}>
+        <input style={{marginBottom: 5}}
           value={passwordOne}
           onChange={event => this.setState(byPropKey('passwordOne', event.target.value))}
           type="password"
           placeholder="New Password"
         />
-        <input
+        <input style={{marginBottom: 5}}
           value={passwordTwo}
           onChange={event => this.setState(byPropKey('passwordTwo', event.target.value))}
           type="password"
