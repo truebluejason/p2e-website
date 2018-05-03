@@ -17,9 +17,9 @@ class AccountPage extends React.Component {
 		};
 	}
 	render() {
-		const h1Style = {
+		const h3Style = {
 	      textAlign: 'center',
-	      marginBottom: 5,
+	      marginBottom: 3,
 	  	};
 	  	const buttonStyle = {
 	      display: "flex",
@@ -31,20 +31,22 @@ class AccountPage extends React.Component {
 	    }
 		return (
 			<ContainerDiv>
-			    <h1 style={h1Style} >Account: {this.state.authUser.email}</h1>
-			    <h1 style={h1Style} >Stage: {this.state.userInfo.highestLevel.toString()} 
+			    <h3 style={h3Style} >Account : {this.state.authUser.email}</h3>
+			    <h3 style={h3Style} >Stage : {this.state.userInfo.highestLevel.toString()} 
 			    	<ButtonToolbar style={buttonStyle} >
 			    		<Button 
 			    			bsStyle="primary"
-			    			bsSize="large"
 			    			onClick={ () => db.updateUserLevel(this.state.authUser.uid, this.state.userInfo.highestLevel+1) }
 			    		>
       					Next Stage!
     					</Button>
     				</ButtonToolbar>
-    			</h1>
+    			</h3>
+    			<h3></h3>
 			    <PasswordForgetForm />
+			    <h3></h3>
 			    <PasswordChangeForm />
+			    <h4></h4>
 		  	</ContainerDiv>
 		);
 	}
