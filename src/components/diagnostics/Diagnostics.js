@@ -15,11 +15,6 @@ import classes from './Diagnostics.css';
 
 // Should have a router that enables each question to be in the page by itself
 class DiagnosticsPage extends React.Component {
-	
-	constructor(props) {
-		super(props);
-	}
-	
 	render() {
 		return (
 			<div>

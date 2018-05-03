@@ -30,7 +30,7 @@ const App = () =>
       <Route exact path={routes.PASSWORD_FORGET} component={() => <PasswordForgetPage />} />
       <Route exact path={routes.INSTRUCTIONS} component={() => <InstructionsPage />} />
       <Route path={routes.DIAGNOSTICS} component={() => <DiagnosticsPage />} />
-      <Route exact path={routes.ANTIDOTES} component={() => <AntidotesPage />} />
+      <Route path={routes.ANTIDOTES} component={() => <AntidotesPage />} />
       <Route exact path={routes.OVERVIEW} component={() => <OverviewPage />} />
     </div>
   </Router>
