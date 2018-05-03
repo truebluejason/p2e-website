@@ -10,11 +10,11 @@ export const doCreateUser = (id, username, email) =>
   });
 
 export const updateUserLevel = (id, newLevel) => {
-  if (db.ref(`users/${id}/highestLevel`) < 10) {
-    db.ref(`users/${id}/highestLevel`).set(newLevel);  
+  if (newLevel > 10) {
+    alert('You are already at the highest level!'); 
   }
   else {
-    alert('You are already at the highest level!');
+    db.ref(`users/${id}/highestLevel`).set(newLevel); 
   }
 }
   

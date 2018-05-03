@@ -37,7 +37,7 @@ class AccountPage extends React.Component {
 			    		<Button 
 			    			bsStyle="primary"
 			    			bsSize="large"
-			    			onClick={ () => db.updateUserLevel(this.state.authUser.uid, this.state.userInfo.highestLevel++) }
+			    			onClick={ () => db.updateUserLevel(this.state.authUser.uid, this.state.userInfo.highestLevel+1) }
 			    		>
       					Next Stage!
     					</Button>
