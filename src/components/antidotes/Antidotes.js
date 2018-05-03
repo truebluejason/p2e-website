@@ -5,6 +5,8 @@ import {
   Link,
 } from 'react-router-dom';
 import { ContainerDiv, SimpleDiv } from '../common/ContainerDiv';
+import { AgitatedPage, DullPage, LazyPage, StuckPage, TemptedPage } from './AntidotesPages';
+import bootstrapClasses, { ListGroup, ListGroupItem, } from '../../assets/bootstrap';
 import * as routes from '../../constants/routes';
 import withAuthorization from '../higherorder/withAuthorization';
 
@@ -24,73 +26,72 @@ class AntidotesPage extends React.Component {
 }
 
 const AntidotesMenuPage = () => {
+	const h3Style = { color: 'teal', margin: 0, marginBottom: 20, };
 	return (
 		<ContainerDiv>
-			<h3 style={{ color: 'teal', margin: 0, marginBottom: 20, textAlign: 'center' }}>Antidotes</h3>
-			<h5>What is the problem you are currently facing?</h5>
+			<h1 style={{ color: 'teal', margin: 0, marginBottom: 20, textAlign: 'center' }}>Antidotes</h1>
+			<h5 style={{ textAlign: 'center' }}>
+				Click on a hindrance to learn its counter. You may be affected by more than one hindrance. 
+				With consistent effort, you will be able to overcome the obstacle(s).
+			</h5>
 			<br />
 			<SimpleDiv>
-				<h5>
+				<h3 style={h3Style}>
 					<Link style={{color: 'teal'}} to={routes.ANTIDOTES_AGITATED}>Agitation</Link>
-				</h5>
-				<p>
-					You feel agitated.
-				</p>
+				</h3>
+				<h5>Symptoms</h5>
+				<ListGroup style={{margin: 0}}>
+					<ListGroupItem>You blame yourself for having been distracted during meditation.</ListGroupItem>
+					<ListGroupItem>You can't wait for meditation to end during the session.</ListGroupItem>
+				</ListGroup>
 			</SimpleDiv>
 			<br />
 			<SimpleDiv>
-				<h5>
+				<h3 style={h3Style}>
 					<Link style={{color: 'teal'}} to={routes.ANTIDOTES_DULL}>Dullness</Link>
-				</h5>
-				<p>
-					You feel dull.
-				</p>
+				</h3>
+				<h5>Symptoms</h5>
+				<ListGroup style={{margin: 0}}>
+					<ListGroupItem>You keep almost falling asleep during meditation.</ListGroupItem>
+					<ListGroupItem>Your mind feels very foggy and not alert.</ListGroupItem>
+				</ListGroup>
 			</SimpleDiv>
 			<br />
 			<SimpleDiv>
-				<h5>
+				<h3 style={h3Style}>
 					<Link style={{color: 'teal'}} to={routes.ANTIDOTES_LAZY}>Laziness</Link>
-				</h5>
-				<p>
-					You feel lazy.
-				</p>
+				</h3>
+				<h5>Symptoms</h5>
+				<ListGroup style={{margin: 0}}>
+					<ListGroupItem>When it's time for meditate, you don't feel like sitting down.</ListGroupItem>
+					<ListGroupItem>You consciously want to think about other things instead of focusing during meditaiton.</ListGroupItem>
+				</ListGroup>
 			</SimpleDiv>
 			<br />
 			<SimpleDiv>
-				<h5>
+				<h3 style={h3Style}>
 					<Link style={{color: 'teal'}} to={routes.ANTIDOTES_STUCK}>Stuck</Link>
-				</h5>
-				<p>
-					You feel stuck.
-				</p>
+				</h3>
+				<h5>Symptoms</h5>
+				<ListGroup style={{margin: 0}}>
+					<ListGroupItem>Despite diligent practise, you feel like you are getting nowhere or even regressing.</ListGroupItem>
+				</ListGroup>
 			</SimpleDiv>
 			<br />
 			<SimpleDiv>
-				<h5>
-					<Link style={{color: 'teal'}} to={routes.ANTIDOTES_TEMPTED}>Tempted</Link>
-				</h5>
-				<p>
-					You feel tempted.
-				</p>
+				<h3 style={h3Style}>
+					<Link style={{color: 'teal'}} to={routes.ANTIDOTES_TEMPTED}>Temptation</Link>
+				</h3>
+				<h5>Symptoms</h5>
+				<ListGroup style={{margin: 0}}>
+					<ListGroupItem>Your mind keeps obsessing about attractive things despite your intention to focus.</ListGroupItem>
+					<ListGroupItem>Your mind keeps obsessing about analyzing things despite your intention to focus.</ListGroupItem>
+					<ListGroupItem>Your mind keeps obsessing about things you don't like despite your intention to focus.</ListGroupItem>
+				</ListGroup>
 			</SimpleDiv>
 		</ContainerDiv>
 	);
 
-}
-const AgitatedPage = () => {
-	return <div>Filler 2</div>
-}
-const DullPage = () => {
-	return <div>Filler 3</div>
-}
-const LazyPage = () => {
-	return <div>Filler 4</div>
-}
-const StuckPage = () => {
-	return <div>Filler 5</div>
-}
-const TemptedPage = () => {
-	return <div>Filler 6</div>
 }
 
 const authCondition = (authUser) => !!authUser;
