@@ -1,23 +1,34 @@
 {
-  "name": "path-to-enlightenment",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "bootstrap": "3",
-    "firebase": "^4.12.0",
-    "fusioncharts": "^3.12.2",
-    "prop-types": "^15.6.1",
-    "react": "^16.2.0",
-    "react-bootstrap": "^0.32.1",
-    "react-dom": "^16.2.0",
-    "react-fusioncharts": "^1.0.5",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+    "name": "path-to-enlightenment",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "bootstrap": "3",
+        "firebase": "^4.12.0",
+        "fusioncharts": "^3.12.2",
+        "prop-types": "^15.6.1",
+        "react": "^16.2.0",
+        "react-bootstrap": "^0.32.1",
+        "react-dom": "^16.2.0",
+        "react-fusioncharts": "^1.0.5",
+        "react-router-dom": "^4.2.2",
+        "react-scripts": "1.1.1"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test --env=jsdom",
+        "eject": "react-scripts eject",
+        "precommit": "lint-staged"
+    },
+    "lint-staged": {
+        "*.{js,json,css,md}": [
+            "prettier --write --tab-width 4 --single-quote",
+            "git add"
+        ]
+    },
+    "devDependencies": {
+        "husky": "^0.14.3",
+        "lint-staged": "^7.0.5"
+    }
 }
