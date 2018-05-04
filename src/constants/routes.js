@@ -13,6 +13,5 @@ export const ANTIDOTES = '/antidotes';
 export const ANTIDOTES_AGITATED = `${ANTIDOTES}/agitated`;
 export const ANTIDOTES_DULL = `${ANTIDOTES}/dull`;
 export const ANTIDOTES_LAZY = `${ANTIDOTES}/lazy`;
-export const ANTIDOTES_STUCK = `${ANTIDOTES}/stuck`;
 export const ANTIDOTES_TEMPTED = `${ANTIDOTES}/tempted`;
 export const OVERVIEW = '/overview';
