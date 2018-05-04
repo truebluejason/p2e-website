@@ -119,7 +119,7 @@ const AntidotesMenuPage = () => {
                         of focusing during meditaiton.
                     </ListGroupItem>
                     <ListGroupItem>
-                        Despite diligent practise, you feel like you are getting
+                        Despite diligent practice, you feel like you are getting
                         nowhere or even regressing.
                     </ListGroupItem>
                 </ListGroup>
