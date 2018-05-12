@@ -230,16 +230,14 @@ const InstructionsPageSeven = props => {
 const InstructionsPageEight = props => {
     return (
         <div>
-            <h3 style={h3Style}>
-                Stage 8: Turning Joyfulness into Tranquility
-            </h3>
+            <h3 style={h3Style}>Stage 8: Cultivating Joy</h3>
         </div>
     );
 };
 const InstructionsPageNine = props => {
     return (
         <div>
-            <h3 style={h3Style}>Stage 9: Cultivating Equanimity</h3>
+            <h3 style={h3Style}>Stage 9: Transforming Joy to Equanimity</h3>
         </div>
     );
 };
