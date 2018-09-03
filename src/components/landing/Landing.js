@@ -66,7 +66,7 @@ const ContentContainer = () => (
             <div style={divStyleLanding}>
                 <h5 style={{ textAlign: 'center' }}>
                     Path to Enlightenment aims to help you develop stable
-                    attention and powerful mindfulness. The site provides the
+                    attention and firm mindfulness. The site provides the
                     following items taylored to your level of experience.
                 </h5>
                 <ListGroup style={{ marginTop: 20 }}>
