@@ -4,10 +4,10 @@
 
 [Path to Enlightenment](https://path-to-enlightenment.firebaseapp.com/) aims to help you develop stable attention and firm mindfulness.
 
-<image src="https://github.com/truebluejason/p2e-website/blob/master/misc/images/ss1.PNG" width="400"/>
-<image src="https://github.com/truebluejason/p2e-website/blob/master/misc/images/ss2.PNG" width="400"/>
-<image src="https://github.com/truebluejason/p2e-website/blob/master/misc/images/ss3.PNG" width="400"/>
-<image src="https://github.com/truebluejason/p2e-website/blob/master/misc/images/ss4.PNG" width="400"/>
+<br />
+
+<image src="https://github.com/truebluejason/p2e-website/blob/master/misc/images/ss1.PNG" width="400"/> <image src="https://github.com/truebluejason/p2e-website/blob/master/misc/images/ss2.PNG" width="400"/>
+<image src="https://github.com/truebluejason/p2e-website/blob/master/misc/images/ss3.PNG" width="400"/> <image src="https://github.com/truebluejason/p2e-website/blob/master/misc/images/ss4.PNG" width="400"/>
 
 <h2>Contact</h2>
 
