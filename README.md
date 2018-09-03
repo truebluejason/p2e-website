@@ -6,8 +6,8 @@
 
 <br />
 
-<image src="https://github.com/truebluejason/p2e-website/blob/master/misc/images/ss1.PNG" width="400"/> <image src="https://github.com/truebluejason/p2e-website/blob/master/misc/images/ss2.PNG" width="400"/>
-<image src="https://github.com/truebluejason/p2e-website/blob/master/misc/images/ss3.PNG" width="400"/> <image src="https://github.com/truebluejason/p2e-website/blob/master/misc/images/ss4.PNG" width="400"/>
+<image src="https://github.com/truebluejason/p2e-website/blob/master/misc/images/ss1.PNG" width="350" style="padding-right:10px;"/> <image src="https://github.com/truebluejason/p2e-website/blob/master/misc/images/ss2.PNG" width="350"/>
+<image src="https://github.com/truebluejason/p2e-website/blob/master/misc/images/ss3.PNG" width="350" style="padding-right:10px;"/> <image src="https://github.com/truebluejason/p2e-website/blob/master/misc/images/ss4.PNG" width="350"/>
 
 <h2>Contact</h2>
 
